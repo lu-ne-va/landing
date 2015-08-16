@@ -23,6 +23,7 @@ button {
 
 button {
     border: 0;
+    cursor: pointer;
 }
 
 img {
@@ -98,14 +99,7 @@ img {
 }
 
 .slide {
-
-    &__container {
-        width: 1100px;
-        margin: 0 auto;
-    }
-
     &_color {
-
         &_violet {
             background-color: #87509c;
             height: 100vh;
@@ -140,6 +134,15 @@ img {
             color: #FFFFFF;
         }
     }
+
+    &__container {
+        width: 1100px;
+        margin: 0 auto;
+
+        &_first-screen {
+            padding-top: 56vh;
+        }
+    }
 }
 
 .content {
@@ -147,12 +150,8 @@ img {
     padding: 105px 0 0;
 
     &_first-screen {
-        //box-sizing: content-box;
-        //margin: 50vh 0 0;
-        //font-weight: 500;
-        //font-size: 42px;
-        //transform: translateY(-50%);
-        padding: 10px;
+        transform: translateY(-50%);
+        padding: 0;
     }
 
     &__header {
@@ -203,13 +202,9 @@ img {
         }
 
         &_first-screen {
-            //box-sizing: content-box;
-            margin: 50vh 0 30px;
+            margin: 0 8% 55px;
             font-weight: 500;
             font-size: 42px;
-            transform: translateY(-50%);
-            padding: 0;
-            //margin: 0 0 30px;
         }
 
     }
@@ -227,6 +222,11 @@ img {
         color: #FFFFFF;
         font-size: 16px;
         margin-bottom: 110px;
+
+        &_first-screen {
+            margin-bottom: 0;
+        }
+
 
         &_color {
             &_orange {
@@ -407,7 +407,6 @@ img {
 }
 
 .social-buttons {
-    width: 100%;
 
     &__item {
         display: inline-block;
@@ -587,10 +586,16 @@ img {
         padding: 16px 25px;
         margin-bottom: 30px;
         color: #FFFFFF;
-        background-color: #273a71;
+        background-color: transparent;
+        box-shadow: inset 0 0 20px 50px #273A71;
         border-radius: 5px;
         width: 48%;
         box-sizing: border-box;
+        transition: all .3s;
+
+        &:focus {
+            box-shadow: inset 0 0 0 2px #273A71;
+        }
 
         &:nth-child(2n+1) {
             margin-right: 3%;
@@ -603,11 +608,17 @@ img {
         padding: 16px 25px;
         margin-bottom: 55px;
         color: #FFFFFF;
-        background-color: #273a71;
+        background-color: transparent;
+        box-shadow: inset 0 0 50px 140px #273A71;
         border-radius: 5px;
         width: 100%;
-        max-width: 100%;
+        resize: none;
         box-sizing: border-box;
+        transition: all .3s;
+
+        &:focus {
+            box-shadow: inset 0 0 0 2px #273A71;
+        }
     }
 }
 
