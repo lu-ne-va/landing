@@ -20,7 +20,8 @@ gulp.task('watch', function(){
     gulp.watch('./less/*.less', ['less']);
     gulp.watch([
         'app/*.html',
-        'app/css/*.css'
+        'app/css/*.css',
+        'app/js/*.js'
     ]).on('change', reload);
 });
 
