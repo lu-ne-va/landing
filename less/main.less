@@ -4,6 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     margin: 0;
+    //min-width: 1200px;
 }
 
 a {
@@ -45,6 +46,7 @@ img {
 .header {
     background-color: #87509c;
     width: 100%;
+    min-width: 1100px;
     position: fixed;
     z-index: 3;
     top: 0;
@@ -73,7 +75,6 @@ img {
 }
 
 .menu {
-    width: 100%;
     list-style: none;
     padding: 0;
     font-weight: 100;
@@ -104,6 +105,8 @@ img {
 }
 
 .slide {
+    min-width: 1100px;
+
     &_color {
         &_violet {
             background-color: #87509c;
@@ -259,7 +262,6 @@ img {
 }
 
 .column {
-    width: 100%;
     font-size: 0;
     box-sizing: border-box;
     text-align: center;
@@ -273,12 +275,12 @@ img {
         text-align: center;
         margin-bottom: 120px;
     }
-    &:first-child {
-        padding: 0 10px 0 0;
-    }
-    &:last-child {
-        padding: 0 0 0 10px;
-    }
+    //&:first-child {
+    //    padding: 0 10px 0 0;
+    //}
+    //&:last-child {
+    //    padding: 0 0 0 10px;
+    //}
 }
 
 .item {
@@ -339,7 +341,6 @@ img {
 
     &__icons {
         margin-top: 25px;
-        width: 100%;
     }
 
     &__diargamma {
@@ -351,18 +352,6 @@ img {
     }
 }
 
-//@-webkit-keyframes rotate {
-//    100% {
-//        transform: rotateZ(360deg);
-//    }
-//}
-//
-//@keyframes rotate {
-//    100% {
-//        transform: rotateZ(360deg);
-//    }
-//}
-//
 .diagramma {
     &__circle {
         width: 80px;
@@ -472,19 +461,13 @@ img {
 }
 
 .portfolio {
+    width: 102%;
+
     &__item {
-        width: 49%;
+        width: 48%;
         display: inline-block;
         vertical-align: top;
-        margin-bottom: 60px;
-
-        &:nth-child(2n+1) {
-            margin-right: 2%;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
+        margin: 0 1% 60px 1%;
 
     }
     &__img-cover {
@@ -653,6 +636,8 @@ img {
 
 .footer {
     background-color: #344b8e;
+    min-width: 1100px;
+
     &__content {
         width: 1100px;
         margin: 0 auto;
