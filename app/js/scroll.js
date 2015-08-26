@@ -8,7 +8,7 @@ $window.on('scroll', function () {
 
     var scrollTop = $window.scrollTop(),
         viewportHeight = $window.height(),
-        changeHeader = viewportHeight- 77;
+        changeHeader = viewportHeight - 77;
 
     Header.setHeaderState(scrollTop, changeHeader);
     Content.showSlideContentOnScroll(scrollTop, viewportHeight);
@@ -55,3 +55,38 @@ $(function () {
     Content.showSlideContentOnScroll(0, 0);
 });
 
+
+//Navigation scrolling
+
+var navigation = (function () {
+
+    return {
+        scroll: function () {
+
+            var menuId = $(this).attr("id").split('_'),
+                slideId = menuId.pop(),
+                $slide = $('#slide_'+slideId);
+
+            $('body').animate({
+                scrollTop: $slide.offset().top
+            }, 1000);
+        },
+        addActiveClass: function () {
+
+            $(this).addClass('menu__link_active');
+
+        },
+        removeActiveClass: function () {
+            $('.menu__link_active').removeClass('.menu__link_active');
+            navigation.addActiveClass();
+
+        },
+        subscribe: function () {
+            $(".menu__link").on("click", this.scroll);
+            $window.on('scroll', this.removeActiveClass)
+        }
+    }
+})();
+
+
+navigation.subscribe();
