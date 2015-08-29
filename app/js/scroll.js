@@ -62,6 +62,8 @@ var navigation = (function () {
 
     return {
         scroll: function () {
+            //debugger;
+
 
             var menuId = $(this).attr("id").split('_'),
                 slideId = menuId.pop(),
@@ -70,6 +72,7 @@ var navigation = (function () {
             $('body').animate({
                 scrollTop: $slide.offset().top
             }, 1000);
+            navigation.removeActiveClass.apply(this);
         },
         addActiveClass: function () {
 
@@ -77,13 +80,13 @@ var navigation = (function () {
 
         },
         removeActiveClass: function () {
-            $('.menu__link_active').removeClass('.menu__link_active');
-            navigation.addActiveClass();
+            $('.menu__link_active').removeClass('menu__link_active');
+            navigation.addActiveClass.apply(this);
 
         },
         subscribe: function () {
             $(".menu__link").on("click", this.scroll);
-            $window.on('scroll', this.removeActiveClass)
+            //$window.on('scroll', navigation.removeActiveClass);
         }
     }
 })();
