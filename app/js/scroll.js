@@ -2,7 +2,7 @@ var $window = $(window),
     $header = $('.header__container'),
     $slides = $('.slide'),
     headerHeight = 77,
-    $menuLinks = $('.menu__link');
+    $scrollLinks = $('.scroll-item');
 
 /**
  * Here is all what's happens on scroll
@@ -81,7 +81,7 @@ var scroll = (function () {
              */
             if ($currentSlide && $currentSlide.get(0) !== $activeSlide.get(0)) {
                 var menuId = $currentSlide.attr('id'),
-                    $menuLink = $menuLinks.filter('[href = #' + menuId + ']');
+                    $menuLink = $scrollLinks.filter('.menu__link[href = #' + menuId + ']');
 
                 if ($menuLink.length) {
                     $activeSlide = $currentSlide; //Save new active slide
@@ -95,9 +95,6 @@ var scroll = (function () {
         }
     }
 })();
-
-
-scroll.subscribe();
 
 /**
  * On load document show content of first slide
@@ -137,15 +134,17 @@ var navigation = (function () {
          * @param $menuLink
          */
         changeActiveClass: function ($menuLink) {
-            $('.menu__link_active').removeClass('menu__link_active');
-            $menuLink.addClass('menu__link_active');
+            $('.active').removeClass('active');
+            $menuLink.addClass('active');
 
         },
         subscribe: function () {
-            $menuLinks.on('click', this.scroll);
+            $scrollLinks.on('click', this.scroll);
         }
     }
 })();
 
-
-navigation.subscribe();
+$(function () {
+    scroll.subscribe();
+    navigation.subscribe();
+});

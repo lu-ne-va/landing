@@ -31,4 +31,6 @@ var form = (function () {
     }
 })();
 
-form.subscribe();
+$(function () {
+    form.subscribe();
+});

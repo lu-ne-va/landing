@@ -41,33 +41,40 @@ var filter = (function () {
             $tab.on('click', this.run)
         }
     }
-
 })();
 
-filter.subscribe();
-
-
+/**
+ * Responsible for the conduct of projects and their load
+ * @type {{showMoreProjects, hideButton, showButton, subscribe}}
+ */
 var projects = (function () {
 
     return {
+
+        /**
+         * Show n-more projects
+         * todo animate loader
+         * @param a
+         */
         showMoreProjects: function (a) {
             n += 4;
-
             $items.css('display', 'none');
             a.slice(0, n).css('display', 'inline-block');
-            //$itemsToShow.slice(4);
             console.log('n', n);
             console.log('$items.length', $items.length);
             console.log('$showItems.length', a.length);
 
-
+            /**
+             * Check do we have something to show in next time.
+             * If we don't hide button 'LOAD MORE PROJECTS'
+             */
             if (a.length <= n) {
                 projects.hideButton();
             } else {
                 projects.showButton();
             }
-
         },
+
         hideButton: function () {
             $loadProjectsButton.hide();
         },
@@ -81,8 +88,10 @@ var projects = (function () {
             });
         }
     }
-
 })();
 
-projects.subscribe();
-projects.showMoreProjects($items);
+$(function () {
+    filter.subscribe();
+    projects.subscribe();
+    projects.showMoreProjects($items); //Показывает первые n объектов при загрузке страницы
+});
