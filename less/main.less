@@ -105,7 +105,10 @@ img {
     }
 }
 
-.scroll-item {} //Only for items (need href-attr) which scroll page to some slide/element (need id-attr)
+.scroll-item {
+}
+
+//Only for items (need href-attr) which scroll page to some slide/element (need id-attr)
 
 .slide {
     min-width: 1100px;
@@ -362,15 +365,15 @@ img {
         height: 160px;
         position: absolute;
 
-        &-1 {
-            border-radius: 0 160px 160px 0;
-            left: 50%;
-            z-index: 2;
-        }
-        &-2 {
-            border-radius: 160px 0 0 160px;
-            z-index: 4;
-        }
+        //&-1 {
+        //    border-radius: 0 160px 160px 0;
+        //    left: 50%;
+        //    z-index: 2;
+        //}
+        //&-2 {
+        //    border-radius: 160px 0 0 160px;
+        //    z-index: 4;
+        //}
 
         &_color {
             &_red {
@@ -439,8 +442,9 @@ img {
 
 .loader {
     &__bar {
-        stroke-dashoffset: 0;
         stroke-width: 20px;
+        stroke-dashoffset: 275%;
+        transition: all 2s 0.7s;
 
         &_color {
             &_blue {
@@ -457,10 +461,26 @@ img {
             }
         }
     }
+
     &__circle {
         stroke-dashoffset: 0;
         stroke: #DFE8ED;
         stroke-width: 20px;
+    }
+}
+
+.show .loader__bar_color {
+    &_blue {
+        stroke-dashoffset: 27.5%;
+    }
+    &_pink {
+        stroke-dashoffset: 68.75%;
+    }
+    &_green {
+        stroke-dashoffset: 82.5%;
+    }
+    &_orange {
+        stroke-dashoffset: 41.25%;
     }
 }
 
@@ -469,7 +489,6 @@ img {
 
     &__item {
         width: 48%;
-        display: inline-block;
         vertical-align: top;
         margin: 0 1% 60px 1%;
         display: none;

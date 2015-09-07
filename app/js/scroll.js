@@ -2,6 +2,7 @@ var $window = $(window),
     $header = $('.header__container'),
     $slides = $('.slide'),
     headerHeight = 77,
+    $diagramms = $('.diagramma'),
     $scrollLinks = $('.scroll-item');
 
 /**
@@ -89,6 +90,7 @@ var scroll = (function () {
                 }
             }
         },
+        //addClassToDiarramm:
 
         subscribe: function () {
             $window.on('scroll', this.init);
